@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>$(ProjectID)</artifactId>
+  <groupId>net.jangaroo.flash.app</groupId>
+  <version>0.8.0-SNAPSHOT</version>
+
+  <packaging>war</packaging>
+
+  <name>$(ProjectName)</name>
+  <description>
+    A Jangaroo Flash Application.
+  </description>
+  
+  <developers>
+    <developer>
+      <name>$(DefaultUser)</name>
+      <organization></organization>
+      <organizationUrl></organizationUrl>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jangaroo_version>0.8.1</jangaroo_version>
+    <jangaroo_libs_version>0.8.2</jangaroo_libs_version>
+    <jetty_version>7.2.0.v20101020</jetty_version>
+  </properties>
+
+  <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+	<outputDirectory>target/jangaroo-output</outputDirectory>
+
+    <plugins>
+      <!-- Use the Jangaroo compiler in "war mode". -->
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <version>${jangaroo_version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>war-package</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Needed for Maven not to fail because we have no web.xml. -->
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty_version}</version>
+        <configuration>
+          <webAppConfig>
+            <defaultsDescriptor>webdefault.xml</defaultsDescriptor>
+          </webAppConfig>
+          <webAppSourceDirectory>${project.build.directory}/${project.artifactId}-${project.version}</webAppSourceDirectory>
+          <stopKey>STOPME</stopKey>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- To use Jangaroo Flash library, all you need is this dependency: -->
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>jooflash</artifactId>
+      <version>${jangaroo_libs_version}</version>
+      <type>jangaroo</type>
+    </dependency>
+  </dependencies>
+
+</project>
