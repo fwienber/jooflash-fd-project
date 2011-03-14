@@ -67,7 +67,7 @@
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="src\$(PackageSlash)Main.as" />
+    <compile path="src\main\joo\$(PackageSlash)Main.as" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
@@ -76,7 +76,7 @@
   <!-- Executed before build -->
   <preBuildCommand>cmd /C mvn package -DskipTests</preBuildCommand>
   <!-- Executed after build -->
-  <postBuildCommand alwaysRun="False">firefox http://localhost:8080/jooflash.html#joo.debug</postBuildCommand>
+  <postBuildCommand alwaysRun="False">cmd /C "start $(ProjectDir)\target\$(ProjectName)\index.html"</postBuildCommand>
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />

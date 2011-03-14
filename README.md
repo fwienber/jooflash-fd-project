@@ -38,12 +38,26 @@ Then, you can create Jangaroo HTML5 Flash Applications from FlashDevelop using
 
 ![screenshot](https://github.com/fwienber/jooflash-fd-project/raw/master/FlashDevelop-Jangaroo-Flash-Project-Screenshot.png "Dialog for creating a Jangaroo project in FlashDevelop")
 
-Now you can build the project using the `Build Project` toolbar button. Maven is invoked and comiles and builds your Web application. Then, a browser is opened at `http://localhost:8080/jooflash.html#joo.debug`. For this to work, you have to start a local Web server serving your Web app in three simple steps:
-
-1. In FlashDevelop, select the file `pom.xml` in the `Project` window.
-2. By clicking the `Command Prompt` button, a command window opens with your project root directory as the current path.
-3. Enter `mvn jetty:run`. After Jetty has been started, the URL opened on `Build Project` should display `Hello World!`.
-
-Now you can edit source code, click `Build Project`, and watch the result in the browser window. If changes do not appear, try clearing the browser cache.
+Now you can build the project using the `Build Project` toolbar button. Maven is invoked and compiles and builds your Web application.
+Then, your default browser opens your Jangaroo application.
+Now you can edit source code, click `Build Project` again, and watch the result in the browser window. If changes do not appear, try clearing the browser cache.
 
 For debugging, please have a look at the [Jangaroo debugging tutorial](http://www.jangaroo.net/tutorial/debugging).
+
+**Optional Setup**
+
+Loading the application from the local filesystem has some disadvantages. IE keeps on asking whether you want local scripts to execute. Debugging is not as nice, as Firebug's Network tab stays empty. Ajax requests (which jooflash uses for [Embed(...)] of text files) do not work.
+
+To improve the situation, Maven allows starting a local Web server serving your Web app in three simple steps:
+
+1. In FlashDevelop, select the file `pom.xml` in the `Project` window.
+2. By clicking the `Command Prompt` button, a command window opens. Make sure the current path is your project root directory, otherwise `cd` into it.
+3. Enter `mvn jetty:run`. A Jetty Web server is started, serving your Web application at `http://localhost:8080/`.
+
+To let FlashDevelop open this page in firefox after build, change `Project Properties | Build | Post-Build Command Line` to
+
+`firefox http://localhost:8080`
+
+or, to invoke the debuggable version, use
+
+`firefox http://localhost:8080/jooflash.html#joo.debug`
