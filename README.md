@@ -50,14 +50,14 @@ Loading the application from the local filesystem has some disadvantages. IE kee
 
 To improve the situation, Maven allows starting a local Web server serving your Web app in three simple steps:
 
-1. In FlashDevelop, select the file `pom.xml` in the `Project` window.
-2. By clicking the `Command Prompt` button, a command window opens. Make sure the current path is your project root directory, otherwise `cd` into it.
+1. In FlashDevelop, open the file `pom.xml` by double-clicking it in the `Project` window.
+2. By clicking the `Command Prompt` button, a command window opens. The current path should be your project root directory, otherwise `cd` into it.
 3. Enter `mvn jetty:run`. A Jetty Web server is started, serving your Web application at `http://localhost:8080/`.
 
 To let FlashDevelop open this page in firefox after build, change `Project Properties | Build | Post-Build Command Line` to
 
-`firefox http://localhost:8080`
+`cmd /C "start http://localhost:8080"`
 
 or, to invoke the debuggable version, use
 
-`firefox http://localhost:8080/jooflash.html#joo.debug`
+`cmd /C "start http://localhost:8080/jooflash.html#joo.debug"`
