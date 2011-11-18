@@ -4,7 +4,7 @@
 
   <artifactId>$(ProjectName)</artifactId>
   <groupId>net.jangaroo.flash.app</groupId>
-  <version>0.8.5-SNAPSHOT</version>
+  <version>0.9.5-SNAPSHOT</version>
 
   <packaging>war</packaging>
 
@@ -23,8 +23,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jangaroo_version>0.8.3</jangaroo_version>
-    <jangaroo_libs_version>0.8.5</jangaroo_libs_version>
+    <jangaroo_version>0.9.5</jangaroo_version>
+    <jangaroo_libs_version>0.9.5</jangaroo_libs_version>
     <jetty_version>7.2.2.v20101205</jetty_version>
   </properties>
 
