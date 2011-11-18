@@ -22,9 +22,8 @@ Now, install [FlashDevelop](http://www.flashdevelop.org).
 
 To set up the Jangaroo Flash Project template for FlashDevelop
 
-1. Press the [`Downloads`](https://github.com/fwienber/jooflash-fd-project/archives/master) button at the top right of this page,
-2. choose `Download .zip`, and
-3. unzip the subfolder `190 ActionScript 3 - Jangaroo Flash Project` contained in the archive into the `Projects` directory of your FlashDevelop installation. (You may have to unzip to a temporary directory and copy over to the program directory to be asked for admin rights.)
+1. Download this project as a [`ZIP`](https://github.com/fwienber/jooflash-fd-project/zipball/master),
+2. unzip the subfolder `190 ActionScript 3 - Jangaroo Flash Project` contained in the archive into the `Projects` directory of your FlashDevelop installation. (You may have to unzip to a temporary directory and copy over to the program directory to be asked for admin rights.)
 
 Then, you can create Jangaroo HTML5 Flash Applications from FlashDevelop using
 
